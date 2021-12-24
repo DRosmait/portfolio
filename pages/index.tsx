@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
+import WaveSection from "../components/Sections/WaveSection";
 import WelcomeSection from "../components/Sections/WelcomeSection";
 
 const Home: NextPage = () => {
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
 
       <main>
         <WelcomeSection />
+        <WaveSection />
       </main>
 
       <footer></footer>
