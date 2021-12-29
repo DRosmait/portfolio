@@ -1,8 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import WaveSection from "../components/Sections/WaveSection";
 import WelcomeSection from "../components/Sections/WelcomeSection";
+import ExperienceSection from "../components/Sections/ExperienceSection";
+import WaveSection from "../components/Sections/WaveSection";
 
 const Home: NextPage = () => {
   return (
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
+        <ExperienceSection />
         <WelcomeSection />
         <WaveSection />
       </main>
