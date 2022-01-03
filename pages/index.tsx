@@ -1,11 +1,35 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import styled from "styled-components";
 
 import WelcomeSection from "../components/Sections/WelcomeSection";
 import ExperienceSection from "../components/Sections/ExperienceSection";
 import WaveSection from "../components/Sections/WaveSection";
 
+const MainSection = styled(motion.main)`
+  color: white;
+`;
+
+const sectionVariants = {
+  0: {
+    backgroundColor: "hsl(172, 100%, 41%)",
+  },
+  1: {
+    backgroundColor: "hsl(269, 100%, 72%)",
+  },
+  2: {
+    backgroundColor: "hsl(45, 100%, 67%)",
+  },
+  3: {
+    backgroundColor: "hsl(200, 100%, 67%)",
+  },
+};
+
 const Home: NextPage = () => {
+  const [step, setStep] = useState(0);
+
   return (
     <div>
       <Head>
@@ -14,11 +38,16 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <MainSection
+        variants={sectionVariants}
+        animate={step.toString()}
+        initial={false}
+        transition={{ duration: 2 }}
+      >
+        <WelcomeSection step={step} setStep={setStep} />
         <ExperienceSection />
-        <WelcomeSection />
         <WaveSection />
-      </main>
+      </MainSection>
 
       <footer></footer>
     </div>
