@@ -3,11 +3,6 @@ import styled, { keyframes } from "styled-components";
 interface Props {}
 
 const Wrapper = styled.div`
-  background: linear-gradient(
-    60deg,
-    rgba(84, 58, 183, 1) 0%,
-    rgba(0, 172, 193, 1) 100%
-  );
   display: flex;
   flex-flow: column;
   flex-grow: 1;
