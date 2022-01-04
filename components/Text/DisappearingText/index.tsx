@@ -1,12 +1,9 @@
 import styled from "styled-components";
 import { motion, Transition } from "framer-motion";
 
-const Wrapper = styled(motion.div)`
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  flex-grow: 1;
-  align-items: center;
+import FlexWrapper from "../../common/FlexWrapper";
+
+const TextWrapper = styled(FlexWrapper)`
   font-weight: 700;
 `;
 
@@ -50,8 +47,8 @@ const DisappearingText = ({
   transition = {},
 }: Props) => {
   const [allCharsLength, maxLineLength] = lines.reduce(
-    ([allLinesLength, maxLength], line) => [
-      allLinesLength + line.length,
+    ([allCharsLength, maxLength], line) => [
+      allCharsLength + line.length,
       line.length > maxLength ? line.length : maxLength,
     ],
     [0, 0]
@@ -59,7 +56,7 @@ const DisappearingText = ({
   const fontSize = `calc(0.7rem + ${Math.floor(100 / maxLineLength)}vw)`;
 
   return (
-    <Wrapper
+    <TextWrapper
       initial="hidden"
       animate="visible"
       onAnimationComplete={onAnimationComplete}
@@ -90,7 +87,7 @@ const DisappearingText = ({
           ))}
         </motion.div>
       ))}
-    </Wrapper>
+    </TextWrapper>
   );
 };
 
