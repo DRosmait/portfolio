@@ -20,8 +20,8 @@ const Char = styled(motion.div)`
   }
 `;
 
-const screenVariants = {
-  start: (inFirstHalf: boolean) => ({
+const charVariants = {
+  hidden: (inFirstHalf: boolean) => ({
     opacity: 0,
     textShadow: "0px 0px 50px white",
     translateY: "-200%",
@@ -29,7 +29,7 @@ const screenVariants = {
     skew: inFirstHalf ? "60deg" : "-60deg",
   }),
 
-  end: {
+  visible: {
     skew: "0deg",
     translateY: "0%",
     translateX: "0%",
@@ -40,18 +40,16 @@ const screenVariants = {
 
 interface Props {
   lines: string[];
-  animate: string;
   onAnimationComplete?: () => void;
   transition?: Partial<Transition>;
 }
 
 const DisappearingText = ({
   lines,
-  animate,
   onAnimationComplete = () => {},
   transition = {},
 }: Props) => {
-  const [allLineLength, maxLineLength] = lines.reduce(
+  const [allCharsLength, maxLineLength] = lines.reduce(
     ([allLinesLength, maxLength], line) => [
       allLinesLength + line.length,
       line.length > maxLength ? line.length : maxLength,
@@ -62,8 +60,8 @@ const DisappearingText = ({
 
   return (
     <Wrapper
-      initial={false}
-      animate={animate}
+      initial="hidden"
+      animate="visible"
       onAnimationComplete={onAnimationComplete}
     >
       {lines.map((line, lineIdx) => (
@@ -81,11 +79,11 @@ const DisappearingText = ({
                 delay: idx * 0.2,
                 duration: 1,
                 repeat: 1,
-                repeatType: "reverse",
-                repeatDelay: allLineLength * 0.15,
+                repeatType: "mirror",
+                repeatDelay: allCharsLength * 0.15,
                 ...transition,
               }}
-              variants={screenVariants}
+              variants={charVariants}
             >
               {char.trim()}
             </Char>
