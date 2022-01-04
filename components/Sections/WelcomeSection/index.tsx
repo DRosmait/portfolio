@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { motion, useCycle } from "framer-motion";
+import { motion } from "framer-motion";
 
 import DisappearingText from "../../Text/DisappearingText";
 import { device } from "../../../styles/breakpoints";
@@ -33,11 +32,6 @@ const screens = [
 ];
 
 export default function WelcomeSection({ step, setStep }: Props) {
-  const [animationState, toggleAnimationState] = useCycle("start", "end");
-
-  useEffect(() => toggleAnimationState(1), []);
-  useEffect(() => console.log(animationState), [animationState]);
-
   return (
     <FullHeightSection>
       {screens.map(
@@ -46,20 +40,15 @@ export default function WelcomeSection({ step, setStep }: Props) {
             <DisappearingText
               key={idx}
               lines={screen}
-              animate={animationState}
               onAnimationComplete={() => {
-                // restart animation cycle
-                toggleAnimationState(0);
-                requestAnimationFrame(() => toggleAnimationState(1));
                 // increment step for starting new animation
-                setStep((value) => {
-                  console.log(value + 1);
-                  return value + 1;
-                });
+                setStep((value) => value + 1);
               }}
             />
           )
       )}
+
+      {step === 3 && <h1>Dima</h1>}
     </FullHeightSection>
   );
 }
