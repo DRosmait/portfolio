@@ -1,36 +1,24 @@
 import styled from "styled-components";
 import { Navigation, A11y } from "swiper";
-
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import Headline from "../common/Headline";
 import { device } from "../../styles/breakpoints";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 
-const FullHeightSection = styled.div`
-  display: flex;
-  flex-flow: column;
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-  justify-content: center;
+import Section from "../common/Section";
+import SectionInner from "../common/SectionInner";
+
+const SectionStyled = styled(Section)`
   --swiper-navigation-color: white;
   --swiper-pagination-color: white;
 
-  @media ${device.tablet} {
-    padding: 0 2rem;
+  @media ${device.mobileS} {
+    padding: 0;
   }
-
-  @media ${device.desktopM} {
-    padding: 0 2rem;
-  }
-`;
-
-const Headline = styled.h1`
-  font-size: calc(1rem + 2vw);
-  margin-bottom: 5vh;
-  text-align: center;
 `;
 
 const SwiperStyled = styled(Swiper)`
@@ -59,7 +47,7 @@ const Card = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
   padding: 2rem;
-  width: 80vw;
+  width: 80%;
 `;
 
 const CardPositionName = styled.div`
@@ -86,8 +74,8 @@ const CardPositionDescription = styled.div`
 
 export default function Some() {
   return (
-    <FullHeightSection>
-      <div>
+    <SectionStyled>
+      <SectionInner>
         <Headline>My previous experiance:</Headline>
         <SwiperStyled modules={[Navigation, A11y]} navigation>
           <SwiperSlide>
@@ -119,7 +107,7 @@ export default function Some() {
             </SwiperSlideContent>
           </SwiperSlide>
         </SwiperStyled>
-      </div>
-    </FullHeightSection>
+      </SectionInner>
+    </SectionStyled>
   );
 }

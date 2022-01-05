@@ -8,10 +8,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .swiper-global {
-    overflow: visible !important;
-    
     & > .swiper-wrapper {
       height: 100vh;
+    }
+  }
+
+  @media (hover: none) {
+    .swiper-global {
+      overflow: visible !important;
     }
   }
 `;

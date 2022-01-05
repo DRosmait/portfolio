@@ -5,7 +5,7 @@ const SVG = styled(motion.svg)`
   fill: white;
   width: calc(1rem + 2vw);
   height: calc(1rem + 2vw);
-  margin-right: calc(0.3rem + 0.3vh);
+  margin-right: calc(0.3rem + 0.3vw);
 `;
 
 export default SVG;

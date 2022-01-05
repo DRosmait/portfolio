@@ -1,24 +1,9 @@
 import styled from "styled-components";
 
+import Section from "../common/Section";
 import WavesBackground from "../WavesBackground";
-import { device } from "../../styles/breakpoints";
 
 interface Props {}
-
-const FullHeightSection = styled.div`
-  display: flex;
-  flex-flow: column;
-  min-height: 100vh;
-  position: relative;
-
-  @media ${device.mobileS} {
-    padding: 0 1.25rem;
-  }
-
-  @media ${device.tablet} {
-    padding: 0 2rem;
-  }
-`;
 
 const Background = styled.div`
   display: flex;
@@ -32,10 +17,10 @@ const Background = styled.div`
 
 export default function WaveSection({}: Props) {
   return (
-    <FullHeightSection>
+    <Section>
       <Background>
         <WavesBackground />
       </Background>
-    </FullHeightSection>
+    </Section>
   );
 }
