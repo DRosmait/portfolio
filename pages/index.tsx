@@ -3,6 +3,12 @@ import Head from "next/head";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { Scrollbar, Mousewheel, A11y } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/scrollbar";
 
 import WelcomeSection from "../components/sections/WelcomeSection";
 import ExperienceSection from "../components/sections/ExperienceSection";
@@ -44,9 +50,30 @@ const Home: NextPage = () => {
         initial={false}
         transition={{ duration: 2 }}
       >
-        <WelcomeSection step={step} setStep={setStep} />
-        <ExperienceSection />
-        <WaveSection />
+        <Swiper
+          className="swiper-global"
+          direction="vertical"
+          modules={[Scrollbar, Mousewheel, A11y]}
+          scrollbar={{ draggable: true, hide: true }}
+          mousewheel={true}
+          draggable={false}
+        >
+          <SwiperSlide key="1">
+            <WelcomeSection step={step} setStep={setStep} />
+          </SwiperSlide>
+
+          {/* {step >= 3 && ( */}
+          <>
+            <SwiperSlide key="2">
+              <ExperienceSection />
+            </SwiperSlide>
+
+            <SwiperSlide key="3">
+              <WaveSection />
+            </SwiperSlide>
+          </>
+          {/* )} */}
+        </Swiper>
       </MainSection>
 
       <footer></footer>

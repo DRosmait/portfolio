@@ -6,6 +6,14 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Montserrat', sans-serif;
   }
+
+  .swiper-global {
+    overflow: visible !important;
+    
+    & > .swiper-wrapper {
+      height: 100vh;
+    }
+  }
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {

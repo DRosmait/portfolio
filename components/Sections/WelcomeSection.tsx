@@ -27,6 +27,10 @@ const FullHeightSection = styled(motion.section)`
   @media ${device.tablet} {
     padding: 0 2rem;
   }
+
+  @media ${device.desktopM} {
+    padding: 0 2rem;
+  }
 `;
 
 const Button = styled(motion.button)`
