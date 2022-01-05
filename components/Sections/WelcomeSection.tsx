@@ -1,54 +1,29 @@
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 
+import Section from "../common/Section";
 import FlexWrapper from "../common/FlexWrapper";
+import Headline from "../common/Headline";
 import ResetIcon from "../icons/ResetIcon";
 import BritainFlag from "../icons/BritainFlag";
 import GermanFlag from "../icons/GermanFlag";
 import DisappearingText from "../DisappearingText";
-import { device } from "../../styles/breakpoints";
 
 interface Props {
   step: number;
   setStep(arg: number | ((value: number) => number)): void;
 }
 
-const FullHeightSection = styled(motion.section)`
-  display: flex;
-  flex-flow: column;
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-
-  @media ${device.mobileS} {
-    padding: 0 1.25rem;
-  }
-
-  @media ${device.tablet} {
-    padding: 0 2rem;
-  }
-
-  @media ${device.desktopM} {
-    padding: 0 2rem;
-  }
-`;
-
 const Button = styled(motion.button)`
   align-items: center;
   border: 3px solid white;
-  border-radius: 5vh;
+  border-radius: 20vw;
   cursor: pointer;
   font-size: calc(1rem + 1vw);
   font-weight: 700;
   display: flex;
   margin-bottom: 10vh;
   padding: calc(1rem + 0.5vw) calc(1rem + 2vw);
-  text-align: center;
-`;
-
-const CVTitle = styled.h1`
-  font-size: calc(1rem + 2vw);
-  margin-bottom: 5vh;
   text-align: center;
 `;
 
@@ -142,7 +117,7 @@ const screens = [
 
 export default function WelcomeSection({ step, setStep }: Props) {
   return (
-    <FullHeightSection>
+    <Section>
       <AnimatePresence exitBeforeEnter>
         {screens.map(
           (screen, idx) =>
@@ -174,7 +149,7 @@ export default function WelcomeSection({ step, setStep }: Props) {
               initial="hidden"
               animate="visible"
             >
-              <CVTitle>Take a look at my CV:</CVTitle>
+              <Headline>Take a look at my CV:</Headline>
 
               <FlagContainer>
                 <FlagLink
@@ -201,6 +176,6 @@ export default function WelcomeSection({ step, setStep }: Props) {
           </FlexWrapper>
         )}
       </AnimatePresence>
-    </FullHeightSection>
+    </Section>
   );
 }
