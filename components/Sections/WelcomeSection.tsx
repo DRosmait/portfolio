@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 
-import FlexWrapper from "../../common/FlexWrapper";
-import ResetIcon from "../../icons/ResetIcon";
-import BritainFlag from "../../icons/BritainFlag";
-import GermanFlag from "../../icons/GermanFlag";
-import DisappearingText from "../../Text/DisappearingText";
-import { device } from "../../../styles/breakpoints";
+import FlexWrapper from "../common/FlexWrapper";
+import ResetIcon from "../icons/ResetIcon";
+import BritainFlag from "../icons/BritainFlag";
+import GermanFlag from "../icons/GermanFlag";
+import DisappearingText from "../DisappearingText";
+import { device } from "../../styles/breakpoints";
 
 interface Props {
   step: number;
@@ -116,6 +116,7 @@ const cvContainerVariants = {
     scale: 1,
     transition: {
       type: "spring",
+      delay: 1,
     },
   },
 };

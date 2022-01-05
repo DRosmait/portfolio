@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion, Transition } from "framer-motion";
 
-import FlexWrapper from "../../common/FlexWrapper";
+import FlexWrapper from "./common/FlexWrapper";
 
 const TextWrapper = styled(FlexWrapper)`
   font-weight: 700;

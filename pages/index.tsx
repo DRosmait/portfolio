@@ -4,9 +4,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-import WelcomeSection from "../components/Sections/WelcomeSection";
-import ExperienceSection from "../components/Sections/ExperienceSection";
-import WaveSection from "../components/Sections/WaveSection";
+import WelcomeSection from "../components/sections/WelcomeSection";
+import ExperienceSection from "../components/sections/ExperienceSection";
+import WaveSection from "../components/sections/WaveSection";
 
 const MainSection = styled(motion.main)`
   color: white;
