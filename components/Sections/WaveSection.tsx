@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import WavesBackground from "../../Backgrounds/WavesBackground";
-import { device } from "../../../styles/breakpoints";
+import WavesBackground from "../WavesBackground";
+import { device } from "../../styles/breakpoints";
 
 interface Props {}
 
