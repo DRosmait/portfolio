@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import { Navigation, Pagination, A11y, EffectFade } from "swiper";
+import { Navigation, A11y } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { device } from "../../styles/breakpoints";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-fade";
 
 const FullHeightSection = styled.div`
   display: flex;
@@ -18,12 +17,39 @@ const FullHeightSection = styled.div`
   justify-content: center;
   --swiper-navigation-color: white;
   --swiper-pagination-color: white;
+
+  @media ${device.tablet} {
+    padding: 0 2rem;
+  }
+
+  @media ${device.desktopM} {
+    padding: 0 2rem;
+  }
 `;
 
-const Wrapper = styled.div``;
+const Headline = styled.h1`
+  font-size: calc(1rem + 2vw);
+  margin-bottom: 5vh;
+  text-align: center;
+`;
+
+const SwiperStyled = styled(Swiper)`
+  & > .swiper-wrapper {
+    align-items: center;
+  }
+
+  .swiper-slide {
+    opacity: 0;
+    transition: opacity 0.3s 0.1s ease-in;
+
+    &-active {
+      opacity: 1;
+    }
+  }
+`;
 
 const SwiperSlideContent = styled.div`
-  min-height: 50vh;
+  min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,38 +63,33 @@ const Card = styled.div`
 `;
 
 const CardPositionName = styled.div`
-  font-size: calc(1rem + 1vh);
+  font-size: calc(1rem + 1vw);
   font-weight: 400;
   margin-bottom: 1rem;
 `;
 
 const CardCompanyName = styled.h3`
-  font-size: calc(1rem + 2vh);
+  font-size: calc(1rem + 2vw);
   font-weight: 700;
   margin-bottom: 1rem;
 `;
 
 const CardPeriod = styled.div`
-  font-size: calc(1rem + 0.5vh);
+  font-size: calc(1rem + 0.5vw);
   font-weight: 100;
   margin-bottom: 1rem;
 `;
 
 const CardPositionDescription = styled.div`
-  font-size: calc(1rem + 0.2vh);
-  margin-bottom: 1rem;
+  font-size: calc(1rem + 0.2vw);
 `;
 
 export default function Some() {
   return (
     <FullHeightSection>
-      <Wrapper>
-        <Swiper
-          modules={[Navigation, Pagination, EffectFade, A11y]}
-          navigation
-          pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
-        >
+      <div>
+        <Headline>My previous experiance:</Headline>
+        <SwiperStyled modules={[Navigation, A11y]} navigation>
           <SwiperSlide>
             <SwiperSlideContent>
               <Card>
@@ -97,8 +118,8 @@ export default function Some() {
               </Card>
             </SwiperSlideContent>
           </SwiperSlide>
-        </Swiper>
-      </Wrapper>
+        </SwiperStyled>
+      </div>
     </FullHeightSection>
   );
 }

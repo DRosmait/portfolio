@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-flow: column;
   flex-grow: 1;
-  overflow: hidden;
   position: relative;
 `;
 
@@ -32,6 +31,16 @@ const Bottom = styled.div`
   margin: 0;
   padding: 0;
   width: 100%;
+
+  &:after {
+    content: "";
+    display: block;
+    background: white;
+    height: 100vh;
+    position: absolute;
+    bottom: -99vh;
+    width: 100%;
+  }
 `;
 
 const Waves = styled.svg`
