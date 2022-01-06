@@ -5,6 +5,7 @@ import "the-new-css-reset/css/reset.css";
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Montserrat', sans-serif;
+    line-height: 1.4;
   }
 
   .swiper-global {

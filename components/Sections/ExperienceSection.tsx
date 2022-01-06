@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Navigation, A11y } from "swiper";
+import { Navigation, A11y, Swiper as ISwiper } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import Headline from "../common/Headline";
@@ -46,8 +46,15 @@ const SwiperSlideContent = styled.div`
 const Card = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
-  padding: 2rem;
   width: 80%;
+
+  @media ${device.mobileS} {
+    padding: 1.5rem 1.5rem;
+  }
+
+  @media ${device.desktopM} {
+    padding: 2.5rem 3rem;
+  }
 `;
 
 const CardPositionName = styled.div`
@@ -72,12 +79,20 @@ const CardPositionDescription = styled.div`
   font-size: calc(1rem + 0.2vw);
 `;
 
-export default function Some() {
+interface Props {
+  setStep: (swiper: ISwiper) => void;
+}
+
+export default function ExperienceSection({ setStep }: Props) {
   return (
     <SectionStyled>
       <SectionInner>
         <Headline>My previous experiance:</Headline>
-        <SwiperStyled modules={[Navigation, A11y]} navigation>
+        <SwiperStyled
+          modules={[Navigation, A11y]}
+          navigation
+          onSlideChange={setStep}
+        >
           <SwiperSlide>
             <SwiperSlideContent>
               <Card>
