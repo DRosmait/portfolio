@@ -15,7 +15,7 @@ const Background = styled.div`
   left: 0;
 `;
 
-export default function WaveSection({}: Props) {
+export default function ContactSection({}: Props) {
   return (
     <Section>
       <Background>

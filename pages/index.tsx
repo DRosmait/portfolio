@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { Scrollbar, Mousewheel, A11y } from "swiper";
+import { Scrollbar, Mousewheel, A11y, Swiper as ISwiper } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -12,13 +12,15 @@ import "swiper/css/scrollbar";
 
 import WelcomeSection from "../components/sections/WelcomeSection";
 import ExperienceSection from "../components/sections/ExperienceSection";
-import WaveSection from "../components/sections/WaveSection";
+import SkillsSection from "../components/sections/SkillsSection";
+import ContactSection from "../components/sections/ContactSection";
 
 const MainSection = styled(motion.main)`
   color: white;
 `;
 
 const sectionVariants = {
+  // Welcome section
   0: {
     backgroundColor: "hsl(172, 100%, 41%)",
   },
@@ -31,10 +33,39 @@ const sectionVariants = {
   3: {
     backgroundColor: "hsl(200, 100%, 67%)",
   },
+  // Experience section
+  4: {
+    backgroundColor: "hsl(153, 100%, 37%)",
+  },
+  5: {
+    backgroundColor: "hsl(221, 100%, 31%)",
+  },
+  // Tech Stack section
+  6: {
+    backgroundColor: "hsl(8, 100%, 67%)",
+  },
 };
 
 const Home: NextPage = () => {
   const [step, setStep] = useState(0);
+
+  const setStepOnSlideChange = ({ activeIndex }: ISwiper) => {
+    switch (activeIndex) {
+      case 0: // Welcome section
+        setStep(3);
+        break;
+      case 1: // Experience section
+        setStep(4);
+        break;
+      case 2: // Contact section
+        setStep(6);
+        break;
+    }
+  };
+
+  const setStepOnExperienceSlideChange = ({ activeIndex }: ISwiper) => {
+    setStep(4 + activeIndex); // 4 is starting point for Experience section
+  };
 
   return (
     <div>
@@ -57,6 +88,7 @@ const Home: NextPage = () => {
           scrollbar={{ draggable: true, hide: true }}
           mousewheel={true}
           draggable={false}
+          onSlideChange={setStepOnSlideChange}
         >
           <SwiperSlide key="1">
             <WelcomeSection step={step} setStep={setStep} />
@@ -65,11 +97,15 @@ const Home: NextPage = () => {
           {/* {step >= 3 && ( */}
           <>
             <SwiperSlide key="2">
-              <ExperienceSection />
+              <ExperienceSection setStep={setStepOnExperienceSlideChange} />
             </SwiperSlide>
 
             <SwiperSlide key="3">
-              <WaveSection />
+              <SkillsSection showNow={step === 6} />
+            </SwiperSlide>
+
+            <SwiperSlide key="4">
+              <ContactSection />
             </SwiperSlide>
           </>
           {/* )} */}
