@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Navigation, A11y, Swiper as ISwiper } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,6 +12,7 @@ import "swiper/css/navigation";
 
 import Section from "../common/Section";
 import SectionInner from "../common/SectionInner";
+import { motion } from "framer-motion";
 
 const SectionStyled = styled(Section)`
   --swiper-navigation-color: white;
@@ -80,49 +82,93 @@ const CardPositionDescription = styled.div`
 `;
 
 interface Props {
+  showNow: boolean;
   setStep: (swiper: ISwiper) => void;
 }
 
-export default function ExperienceSection({ setStep }: Props) {
+// Variants
+const headlineVariants = {
+  hidden: {
+    opacity: 0,
+    y: "-200%",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.3,
+    },
+  },
+};
+
+const swiperVariants = {
+  hidden: {
+    opacity: 0,
+    y: "100%",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.6,
+    },
+  },
+};
+
+export default function ExperienceSection({ showNow, setStep }: Props) {
+  const [wasShown, setWasShown] = useState(false);
+
+  useEffect(() => {
+    if (!wasShown && showNow) setWasShown(true);
+  }, [showNow, wasShown, setWasShown]);
+
   return (
     <SectionStyled>
-      <SectionInner>
-        <Headline>My previous experiance:</Headline>
-        <SwiperStyled
-          modules={[Navigation, A11y]}
-          navigation
-          onSlideChange={setStep}
-        >
-          <SwiperSlide>
-            <SwiperSlideContent>
-              <Card>
-                <CardPositionName>Front-End Developer</CardPositionName>
-                <CardCompanyName>Soil & More Impacts GmbH</CardCompanyName>
-                <CardPeriod>Oktober 2020 bis Heute</CardPeriod>
-                <CardPositionDescription>
-                  FE Entwicklung SaaS für Optimierung Beschaffungschancen und
-                  Risiken angesichts des Klimawandels.
-                </CardPositionDescription>
-              </Card>
-            </SwiperSlideContent>
-          </SwiperSlide>
+      {wasShown && (
+        <SectionInner initial="hidden" animate="visible">
+          <Headline variants={headlineVariants}>
+            My previous experiance:
+          </Headline>
 
-          <SwiperSlide>
-            <SwiperSlideContent>
-              <Card>
-                <CardPositionName>Front-End Developer</CardPositionName>
-                <CardCompanyName>Neveling.net Reply GmbH</CardCompanyName>
-                <CardPeriod>August 2017 bis Oktober 2020</CardPeriod>
-                <CardPositionDescription>
-                  Implementierung FE-Architektur in Sitecore CSM Projekten;
-                  Integration Third-Party Libraries; permanentes Refactoring,
-                  Code Reviews, Team Unterstützung und Workshop Führung.
-                </CardPositionDescription>
-              </Card>
-            </SwiperSlideContent>
-          </SwiperSlide>
-        </SwiperStyled>
-      </SectionInner>
+          <motion.div variants={swiperVariants}>
+            <SwiperStyled
+              modules={[Navigation, A11y]}
+              navigation
+              onSlideChange={setStep}
+            >
+              <SwiperSlide>
+                <SwiperSlideContent>
+                  <Card>
+                    <CardPositionName>Front-End Developer</CardPositionName>
+                    <CardCompanyName>Soil & More Impacts GmbH</CardCompanyName>
+                    <CardPeriod>Oktober 2020 bis Heute</CardPeriod>
+                    <CardPositionDescription>
+                      FE Entwicklung SaaS für Optimierung Beschaffungschancen
+                      und Risiken angesichts des Klimawandels.
+                    </CardPositionDescription>
+                  </Card>
+                </SwiperSlideContent>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <SwiperSlideContent>
+                  <Card>
+                    <CardPositionName>Front-End Developer</CardPositionName>
+                    <CardCompanyName>Neveling.net Reply GmbH</CardCompanyName>
+                    <CardPeriod>August 2017 bis Oktober 2020</CardPeriod>
+                    <CardPositionDescription>
+                      Implementierung FE-Architektur in Sitecore CSM Projekten;
+                      Integration Third-Party Libraries; permanentes
+                      Refactoring, Code Reviews, Team Unterstützung und Workshop
+                      Führung.
+                    </CardPositionDescription>
+                  </Card>
+                </SwiperSlideContent>
+              </SwiperSlide>
+            </SwiperStyled>
+          </motion.div>
+        </SectionInner>
+      )}
     </SectionStyled>
   );
 }
