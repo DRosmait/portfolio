@@ -44,6 +44,10 @@ const sectionVariants = {
   6: {
     backgroundColor: "hsl(8, 100%, 67%)",
   },
+  // Contact section
+  7: {
+    backgroundColor: "hsl(217, 100%, 64%)",
+  },
 };
 
 const Home: NextPage = () => {
@@ -57,8 +61,11 @@ const Home: NextPage = () => {
       case 1: // Experience section
         setStep(4);
         break;
-      case 2: // Contact section
+      case 2: // Skills section
         setStep(6);
+        break;
+      case 3: // Contact section
+        setStep(7);
         break;
     }
   };
@@ -105,7 +112,7 @@ const Home: NextPage = () => {
             </SwiperSlide>
 
             <SwiperSlide key="4">
-              <ContactSection />
+              <ContactSection showNow={step === 7} />
             </SwiperSlide>
           </>
           {/* )} */}

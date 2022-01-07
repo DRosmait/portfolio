@@ -45,6 +45,21 @@ const TechItem = styled(motion.span)`
   }
 `;
 
+// Variants
+const headlineVariants = {
+  hidden: {
+    opacity: 0,
+    y: "-200%",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.4,
+    },
+  },
+};
+
 const techVariants = {
   hidden: {
     opacity: 0,
@@ -117,7 +132,13 @@ const SkillsSection = ({ showNow }: Props) => {
     <Section>
       {count >= 0 && (
         <SectionInner>
-          <Headline>This is my tech skills:</Headline>
+          <Headline
+            variants={headlineVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            This is my tech skills:
+          </Headline>
 
           {techs
             .map(({ title, list }, idx) => (
