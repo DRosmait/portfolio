@@ -100,9 +100,6 @@ const iconVariants = {
   visible: {
     scale: 1,
   },
-  hover: {
-    rotate: 10,
-  },
 };
 
 export default function ContactSection({ showNow }: Props) {

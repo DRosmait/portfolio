@@ -12,6 +12,7 @@ import "swiper/css/scrollbar";
 
 import WelcomeSection from "../components/sections/WelcomeSection";
 import ExperienceSection from "../components/sections/ExperienceSection";
+import ProjectSection from "../components/sections/ProjectSection";
 import SkillsSection from "../components/sections/SkillsSection";
 import ContactSection from "../components/sections/ContactSection";
 
@@ -40,12 +41,16 @@ const sectionVariants = {
   5: {
     backgroundColor: "hsl(221, 100%, 31%)",
   },
-  // Tech Stack section
+  // Projects section
   6: {
+    backgroundColor: "hsl(45, 100%, 67%)",
+  },
+  // Tech Stack section
+  7: {
     backgroundColor: "hsl(8, 100%, 67%)",
   },
   // Contact section
-  7: {
+  8: {
     backgroundColor: "hsl(217, 100%, 64%)",
   },
 };
@@ -64,8 +69,11 @@ const Home: NextPage = () => {
       case 2: // Skills section
         setStep(6);
         break;
-      case 3: // Contact section
+      case 3: // Skills section
         setStep(7);
+        break;
+      case 4: // Contact section
+        setStep(8);
         break;
     }
   };
@@ -104,15 +112,22 @@ const Home: NextPage = () => {
           {/* {step >= 3 && ( */}
           <>
             <SwiperSlide key="2">
-              <ExperienceSection setStep={setStepOnExperienceSlideChange} />
+              <ExperienceSection
+                showNow={step === 4}
+                setStep={setStepOnExperienceSlideChange}
+              />
             </SwiperSlide>
 
             <SwiperSlide key="3">
-              <SkillsSection showNow={step === 6} />
+              <ProjectSection showNow={step === 6} />
             </SwiperSlide>
 
             <SwiperSlide key="4">
-              <ContactSection showNow={step === 7} />
+              <SkillsSection showNow={step === 7} />
+            </SwiperSlide>
+
+            <SwiperSlide key="5">
+              <ContactSection showNow={step === 8} />
             </SwiperSlide>
           </>
           {/* )} */}
