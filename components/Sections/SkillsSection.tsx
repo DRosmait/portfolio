@@ -97,27 +97,35 @@ const techs = [
   },
   {
     title: "Front-End Frameworks:",
-    list: ["VueJS", "VueX", "Vue Router", "ReactJS", "Redux", "React Router"],
+    list: [
+      "VueJS",
+      "VueX",
+      "Vue Router",
+      "NextJS",
+      "ReactJS",
+      "Redux",
+      "React Router",
+    ],
   },
   {
     title: "Back-End:",
     list: ["NodeJS", "Express", "MongoDB", "Mongoose"],
   },
   {
-    title: "Testing:",
+    title: "Test automation:",
     list: ["Cypress", "Jest"],
   },
   {
-    title: "Bundlers und Compilers:",
+    title: "Bundlers and compilers:",
     list: ["Webpack", "Grunt", "Babel"],
   },
   {
-    title: "Programmierparadigmen und Prinzipien:",
-    list: ["OOP", "Funktionale und Reaktive Programmierungen"],
+    title: "Programming models and paradigms:",
+    list: ["OOP", "functional and reactive programming"],
   },
   {
-    title: "Andere:",
-    list: ["REST und GraphQL API", "HTML", "CSS", "SCRUM", "Agile"],
+    title: "Others:",
+    list: ["REST and GraphQL API", "HTML", "CSS", "SCRUM", "Agile"],
   },
 ];
 
@@ -137,7 +145,7 @@ const SkillsSection = ({ showNow }: Props) => {
             initial="hidden"
             animate="visible"
           >
-            This is my tech skills:
+            This are my tech skills:
           </Headline>
 
           {techs

@@ -109,28 +109,28 @@ const Home: NextPage = () => {
             <WelcomeSection step={step} setStep={setStep} />
           </SwiperSlide>
 
-          {/* {step >= 3 && ( */}
-          <>
-            <SwiperSlide key="2">
-              <ExperienceSection
-                showNow={step === 4}
-                setStep={setStepOnExperienceSlideChange}
-              />
-            </SwiperSlide>
+          {step >= 3 && (
+            <>
+              <SwiperSlide key="2">
+                <ExperienceSection
+                  showNow={step === 4}
+                  setStep={setStepOnExperienceSlideChange}
+                />
+              </SwiperSlide>
 
-            <SwiperSlide key="3">
-              <ProjectSection showNow={step === 6} />
-            </SwiperSlide>
+              <SwiperSlide key="3">
+                <ProjectSection showNow={step === 6} />
+              </SwiperSlide>
 
-            <SwiperSlide key="4">
-              <SkillsSection showNow={step === 7} />
-            </SwiperSlide>
+              <SwiperSlide key="4">
+                <SkillsSection showNow={step === 7} />
+              </SwiperSlide>
 
-            <SwiperSlide key="5">
-              <ContactSection showNow={step === 8} />
-            </SwiperSlide>
-          </>
-          {/* )} */}
+              <SwiperSlide key="5">
+                <ContactSection showNow={step === 8} />
+              </SwiperSlide>
+            </>
+          )}
         </Swiper>
       </MainSection>
 

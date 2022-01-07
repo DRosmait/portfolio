@@ -111,8 +111,8 @@ const flagButtonVariants = {
 
 const screens = [
   ["Programming", "is", "awesome"],
-  ["Hello and wellcome", "My name is Dima", "I'm FE developer"],
-  ["...just scroll down"],
+  ["Hello and welcome", "My name is Dima Rosmait", "I'm software developer"],
+  ["...just scroll down to know more"],
 ];
 
 export default function WelcomeSection({ step, setStep }: Props) {
@@ -153,7 +153,7 @@ export default function WelcomeSection({ step, setStep }: Props) {
 
               <FlagContainer>
                 <FlagLink
-                  href="/cv/cv_dima_rosmait.pdf"
+                  href="/cv/cv_dima_rosmait_eng.pdf"
                   target="_blank"
                   variants={flagButtonVariants}
                   whileHover="hover"
@@ -163,7 +163,7 @@ export default function WelcomeSection({ step, setStep }: Props) {
                 </FlagLink>
 
                 <FlagLink
-                  href="/cv/cv_dima_rosmait.pdf"
+                  href="/cv/cv_dima_rosmait_ger.pdf"
                   target="_blank"
                   variants={flagButtonVariants}
                   whileHover="hover"
