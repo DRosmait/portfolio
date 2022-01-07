@@ -86,6 +86,57 @@ interface Props {
   setStep: (swiper: ISwiper) => void;
 }
 
+interface Experience {
+  company: string;
+  position: string;
+  period: string;
+  description: string;
+}
+
+const experiences: Experience[] = [
+  {
+    company: "Soil & More Impacts GmbH",
+    position: "Full-stack developer",
+    period: "October 2020 - January 2022",
+    description:
+      "BE and FE development of a SaaS for optimizing procurement opportunities and risks in light of climate change.",
+  },
+  {
+    company: "Neveling.net Reply GmbH",
+    position: "Front-end developer",
+    period: "August 2017 - October 2020",
+    description:
+      "Development of FE-architectures for Sitecore CSM projects; Integration and extending third-party libraries; team couching, code reviewing, permanent refactoring, workshop leadership.",
+  },
+  {
+    company: "JessenLenz GmbH",
+    position: "Sales assistance in Apple Premium Reseller Shop",
+    period: "August 2016 - August 2017",
+    description:
+      "Sales of hard- und software, technical support, preparing and calculation of offers.",
+  },
+  {
+    company: "Freelance",
+    position: "Front-end developer",
+    period: "March 2015 - Jun 2016",
+    description: "Front-End development of online learning platforms.",
+  },
+  {
+    company: "Oshadbank (Ukraine)",
+    position: "IT-engineer of informatic and automatization",
+    period: "Jun 2010 - December 2014",
+    description:
+      "Depository database support, updating and troubleshooting; creation of monthly controlling statistics, ensuring banking operations and service integrity.",
+  },
+  {
+    company: "Majak GmbH (Ukraine)",
+    position: "Sales staff",
+    period: "August 2007 - Jun 2010",
+    description:
+      "Customer advice and sale of hardware and software; building and configuring of IT systems; installation of user software and system optimization.",
+  },
+];
+
 // Variants
 const headlineVariants = {
   hidden: {
@@ -127,7 +178,7 @@ export default function ExperienceSection({ showNow, setStep }: Props) {
       {wasShown && (
         <SectionInner initial="hidden" animate="visible">
           <Headline variants={headlineVariants}>
-            My previous experiance:
+            My previous experience:
           </Headline>
 
           <motion.div variants={swiperVariants}>
@@ -136,35 +187,20 @@ export default function ExperienceSection({ showNow, setStep }: Props) {
               navigation
               onSlideChange={setStep}
             >
-              <SwiperSlide>
-                <SwiperSlideContent>
-                  <Card>
-                    <CardPositionName>Front-End Developer</CardPositionName>
-                    <CardCompanyName>Soil & More Impacts GmbH</CardCompanyName>
-                    <CardPeriod>Oktober 2020 bis Heute</CardPeriod>
-                    <CardPositionDescription>
-                      FE Entwicklung SaaS für Optimierung Beschaffungschancen
-                      und Risiken angesichts des Klimawandels.
-                    </CardPositionDescription>
-                  </Card>
-                </SwiperSlideContent>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <SwiperSlideContent>
-                  <Card>
-                    <CardPositionName>Front-End Developer</CardPositionName>
-                    <CardCompanyName>Neveling.net Reply GmbH</CardCompanyName>
-                    <CardPeriod>August 2017 bis Oktober 2020</CardPeriod>
-                    <CardPositionDescription>
-                      Implementierung FE-Architektur in Sitecore CSM Projekten;
-                      Integration Third-Party Libraries; permanentes
-                      Refactoring, Code Reviews, Team Unterstützung und Workshop
-                      Führung.
-                    </CardPositionDescription>
-                  </Card>
-                </SwiperSlideContent>
-              </SwiperSlide>
+              {experiences.map((exp, idx) => (
+                <SwiperSlide key={idx}>
+                  <SwiperSlideContent>
+                    <Card>
+                      <CardPositionName>{exp.position}</CardPositionName>
+                      <CardCompanyName>{exp.company}</CardCompanyName>
+                      <CardPeriod>{exp.period}</CardPeriod>
+                      <CardPositionDescription>
+                        {exp.description}
+                      </CardPositionDescription>
+                    </Card>
+                  </SwiperSlideContent>
+                </SwiperSlide>
+              ))}
             </SwiperStyled>
           </motion.div>
         </SectionInner>
