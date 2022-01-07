@@ -1,8 +1,9 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 import { device } from "../../styles/breakpoints";
 
-const SectionInner = styled.div`
+const SectionInner = styled(motion.div)`
   @media ${device.desktopM} {
     align-self: center;
     width: 80rem;
