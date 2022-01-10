@@ -127,8 +127,8 @@ const flagButtonVariants = {
 
 const screens = [
   ["Programming", "is", "awesome"],
-  ["Hello and welcome", "My name is Dima Rosmait", "I'm software developer"],
-  ["...just scroll down to know more"],
+  ["Hello and welcome", "My name is", "Dima Rosmait", "I'm web developer"],
+  ["...just scroll down", " to know more..."],
 ];
 
 export default function WelcomeSection({ step, setStep }: Props) {
