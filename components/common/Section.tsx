@@ -8,7 +8,6 @@ const Section = styled(motion.section)`
   flex-flow: column;
   min-height: 100vh;
   justify-content: center;
-  overflow: hidden;
   position: relative;
 
   @media ${device.mobileS} {

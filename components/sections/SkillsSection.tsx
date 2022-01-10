@@ -20,8 +20,16 @@ const TechSection = styled(motion.dl)`
 `;
 
 const TechTitle = styled(motion.dt)`
-  font-size: 1rem;
   font-weight: 100;
+
+  @media ${device.mobileLandscapeS} {
+    line-height: 1;
+    font-size: 0.8rem;
+  }
+
+  @media ${device.mobileLandscapeL} {
+    font-size: 1rem;
+  }
 
   @media ${device.tablet} {
     font-size: calc(1rem + 0.3vh);
@@ -38,6 +46,14 @@ const TechItem = styled(motion.span)`
 
   &:last-of-type {
     margin-right: 0%;
+  }
+
+  @media ${device.mobileLandscapeS} {
+    font-size: 1.1rem;
+  }
+
+  @media ${device.mobileLandscapeL} {
+    font-size: 1.1rem;
   }
 
   @media ${device.tablet} {

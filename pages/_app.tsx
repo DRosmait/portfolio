@@ -12,6 +12,14 @@ const GlobalStyle = createGlobalStyle`
     & > .swiper-wrapper {
       height: 100vh;
     }
+
+    .swiper-slide {
+      overflow: hidden;
+
+      &:last-of-type {
+        overflow: visible;
+      }
+    }
   }
 
   @media (hover: none) {

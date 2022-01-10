@@ -8,6 +8,7 @@ import ResetIcon from "../icons/ResetIcon";
 import BritainFlag from "../icons/BritainFlag";
 import GermanFlag from "../icons/GermanFlag";
 import DisappearingText from "../DisappearingText";
+import { device } from "../../styles/breakpoints";
 
 interface Props {
   step: number;
@@ -22,9 +23,17 @@ const Button = styled(motion.button)`
   font-size: calc(1rem + 1vw);
   font-weight: 700;
   display: flex;
-  margin-bottom: 10vh;
-  padding: calc(1rem + 0.5vw) calc(1rem + 2vw);
   text-align: center;
+
+  @media ${device.mobileLandscapeS} {
+    margin-bottom: 5vh;
+    padding: calc(0.5rem + 0.5vw) calc(0.5rem + 2vw);
+  }
+
+  @media ${device.mobileLandscapeL} {
+    margin-bottom: 10vh;
+    padding: calc(1rem + 0.5vw) calc(1rem + 2vw);
+  }
 `;
 
 const FlagContainer = styled.div`
@@ -36,10 +45,17 @@ const FlagContainer = styled.div`
 const FlagLink = styled(motion.a)`
   cursor: pointer;
   max-width: 12rem;
-  width: 30vw;
 
   &:first-of-type {
     margin-right: 3vw;
+  }
+
+  @media ${device.mobileLandscapeS} {
+    width: 15vw;
+  }
+
+  @media ${device.mobileLandscapeL} {
+    width: 25vw;
   }
 `;
 
