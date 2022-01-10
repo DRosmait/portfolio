@@ -5,6 +5,7 @@ import FlexWrapper from "./common/FlexWrapper";
 
 const TextWrapper = styled(FlexWrapper)`
   font-weight: 700;
+  overflow: hidden;
 `;
 
 const Char = styled(motion.div)`
@@ -53,7 +54,7 @@ const DisappearingText = ({
     ],
     [0, 0]
   );
-  const fontSize = `calc(0.7rem + ${Math.floor(100 / maxLineLength)}vw)`;
+  const fontSize = `calc(0.5rem + ${Math.floor(100 / maxLineLength)}vw)`;
 
   return (
     <TextWrapper
