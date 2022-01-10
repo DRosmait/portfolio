@@ -1,3 +1,4 @@
+import Head from "next/head";
 import type { AppProps } from "next/app";
 import { createGlobalStyle } from "styled-components";
 import "the-new-css-reset/css/reset.css";
@@ -32,6 +33,9 @@ const GlobalStyle = createGlobalStyle`
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Head>
+        <meta name="viewport" content="viewport-fit=cover" />
+      </Head>
       <GlobalStyle />
       <Component {...pageProps} />
     </>
