@@ -60,25 +60,52 @@ const Card = styled.div`
 `;
 
 const CardPositionName = styled.div`
-  font-size: calc(1rem + 1vw);
   font-weight: 400;
   margin-bottom: 1rem;
+
+  @media ${device.mobileLandscapeS} {
+    font-size: calc(1rem + 0.3vw);
+  }
+
+  @media ${device.mobileLandscapeL} {
+    font-size: calc(1rem + 1vw);
+  }
 `;
 
 const CardCompanyName = styled.h3`
-  font-size: calc(1rem + 2vw);
   font-weight: 700;
   margin-bottom: 1rem;
+
+  @media ${device.mobileLandscapeS} {
+    font-size: calc(1rem + 1.2vw);
+  }
+
+  @media ${device.mobileLandscapeL} {
+    font-size: calc(1rem + 2vw);
+  }
 `;
 
 const CardPeriod = styled.div`
-  font-size: calc(1rem + 0.5vw);
   font-weight: 100;
   margin-bottom: 1rem;
+
+  @media ${device.mobileLandscapeS} {
+    font-size: calc(1rem + 0.2vw);
+  }
+
+  @media ${device.mobileLandscapeL} {
+    font-size: calc(1rem + 0.5vw);
+  }
 `;
 
 const CardPositionDescription = styled.div`
-  font-size: calc(1rem + 0.2vw);
+  @media ${device.mobileLandscapeS} {
+    font-size: calc(1rem);
+  }
+
+  @media ${device.mobileLandscapeL} {
+    font-size: calc(1rem + 0.2vw);
+  }
 `;
 
 interface Props {

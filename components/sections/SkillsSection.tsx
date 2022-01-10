@@ -12,19 +12,27 @@ interface Props {
 }
 
 const TechSection = styled(motion.dl)`
-  margin-bottom: calc(0.5rem + 0.3vh);
+  margin-bottom: calc(0.3rem + 0.3vh);
 
   @media ${device.tablet} {
-    margin-bottom: calc(1rem + 1vh);
+    margin-bottom: calc(0.7rem + 0.5vh);
   }
 `;
 
 const TechTitle = styled(motion.dt)`
-  font-size: 1rem;
   font-weight: 100;
 
+  @media ${device.mobileLandscapeS} {
+    line-height: 1;
+    font-size: 0.8rem;
+  }
+
+  @media ${device.mobileLandscapeL} {
+    font-size: 1rem;
+  }
+
   @media ${device.tablet} {
-    font-size: calc(1rem + 0.3vw);
+    font-size: calc(1rem + 0.3vh);
   }
 `;
 
@@ -34,14 +42,22 @@ const TechItem = styled(motion.span)`
   display: inline-block;
   font-size: 1.2rem;
   font-weight: 700;
-  margin-right: calc(0.3rem + 0.8vw);
+  margin-right: calc(0.3rem + 0.8vh);
 
   &:last-of-type {
     margin-right: 0%;
   }
 
+  @media ${device.mobileLandscapeS} {
+    font-size: 1.1rem;
+  }
+
+  @media ${device.mobileLandscapeL} {
+    font-size: 1.1rem;
+  }
+
   @media ${device.tablet} {
-    font-size: calc(1.2rem + 0.5vw);
+    font-size: calc(1.2rem + 0.5vh);
   }
 `;
 

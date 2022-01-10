@@ -39,19 +39,19 @@ const IconContainer = styled(motion.div)`
 
   @media ${device.mobileS} {
     & > * {
-      width: 17vw;
+      width: 13vw;
     }
   }
 
   @media ${device.tablet} {
     & > * {
-      width: 13vw;
+      width: 11vw;
     }
   }
 
   @media ${device.desktopS} {
     & > * {
-      width: 10vw;
+      width: 9vw;
     }
   }
 `;
