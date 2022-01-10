@@ -41,16 +41,28 @@ const sectionVariants = {
   5: {
     backgroundColor: "hsl(221, 100%, 31%)",
   },
-  // Projects section
   6: {
     backgroundColor: "hsl(45, 100%, 67%)",
   },
-  // Tech Stack section
   7: {
     backgroundColor: "hsl(8, 100%, 67%)",
   },
-  // Contact section
   8: {
+    backgroundColor: "hsl(217, 100%, 64%)",
+  },
+  9: {
+    backgroundColor: "hsl(269, 100%, 72%)",
+  },
+  // Projects section
+  10: {
+    backgroundColor: "hsl(45, 100%, 67%)",
+  },
+  // Tech Stack section
+  11: {
+    backgroundColor: "hsl(8, 100%, 67%)",
+  },
+  // Contact section
+  12: {
     backgroundColor: "hsl(217, 100%, 64%)",
   },
 };
@@ -67,13 +79,13 @@ const Home: NextPage = () => {
         setStep(4);
         break;
       case 2: // Skills section
-        setStep(6);
+        setStep(10);
         break;
       case 3: // Skills section
-        setStep(7);
+        setStep(11);
         break;
       case 4: // Contact section
-        setStep(8);
+        setStep(12);
         break;
     }
   };
@@ -110,26 +122,26 @@ const Home: NextPage = () => {
           </SwiperSlide>
 
           {/* {step >= 3 && ( */}
-            <>
-              <SwiperSlide key="2">
-                <ExperienceSection
-                  showNow={step === 4}
-                  setStep={setStepOnExperienceSlideChange}
-                />
-              </SwiperSlide>
+          <>
+            <SwiperSlide key="2">
+              <ExperienceSection
+                showNow={step === 4}
+                setStep={setStepOnExperienceSlideChange}
+              />
+            </SwiperSlide>
 
-              <SwiperSlide key="3">
-                <ProjectSection showNow={step === 6} />
-              </SwiperSlide>
+            <SwiperSlide key="3">
+              <ProjectSection showNow={step === 10} />
+            </SwiperSlide>
 
-              <SwiperSlide key="4">
-                <SkillsSection showNow={step === 7} />
-              </SwiperSlide>
+            <SwiperSlide key="4">
+              <SkillsSection showNow={step === 11} />
+            </SwiperSlide>
 
-              <SwiperSlide key="5">
-                <ContactSection showNow={step === 8} />
-              </SwiperSlide>
-            </>
+            <SwiperSlide key="5">
+              <ContactSection showNow={step === 12} />
+            </SwiperSlide>
+          </>
           {/* )} */}
         </Swiper>
       </MainSection>
