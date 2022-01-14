@@ -131,7 +131,7 @@ export default function ContactSection({ showNow }: Props) {
             animate="visible"
           >
             <IconLink
-              href="https://www.linkedin.com/in/dima-rosmait-5b4205199/"
+              href="https://www.linkedin.com/in/dima-rosmait/"
               rel="noreferrer"
               target="_blank"
               variants={iconVariants}
