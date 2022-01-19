@@ -20,6 +20,8 @@ const MainSection = styled(motion.main)`
   color: white;
 `;
 
+console.log("Test SSH")
+
 const sectionVariants = {
   // Welcome section
   0: {
